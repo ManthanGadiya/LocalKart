@@ -1,0 +1,31 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalKart | Login</title>
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body class="login-body">
+  <main class="login-wrap">
+    <section class="login-card">
+      <h1 class="logo">LocalKart</h1>
+      <p class="subtitle">Smart Utensil Comparison System</p>
+
+      <label>Username
+        <input id="loginEmail" type="text" placeholder="Enter username or email">
+      </label>
+      <label>Password
+        <input id="loginPassword" type="password" placeholder="Enter password">
+      </label>
+
+      <div class="actions">
+        <button id="loginBtn" class="btn-green" type="button">Login</button>
+        <button id="signupBtn" class="ghost-btn" type="button">Sign Up</button>
+      </div>
+      <div id="authStatus" class="subtle"></div>
+    </section>
+  </main>
+  <script src="static/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+Local kart
+   systemKAR
+ASSIGNMENT 1:
+
+1.1 Problem Identification and Definition In today’s world, customers face
+difficulty in finding the right product material (e.g., utensils like steel, copper,
+aluminium) and nearby reliable shops. They rely on multiple sources like e-
+commerce apps, Google search, or manual visits. This makes the process
+time-consuming and confusing. Local vendors also lose visibility. There is a
+need for a system that not only suggests the right product material but also
+shows nearby shop locations where customers can buy them
+.
+1.2 Problem Description
+The current system of shopping is fragmented. For example, if a customer
+wants to buy a steel pressure cooker, they have to first decide material, then
+manually search local shops or e-commerce platforms. Comparing prices
+and availability is difficult. Local shops are not visible digitally. The proposed
+system will solve this problem by: • Allowing users to log in and search for
+any product (e.g., utensils). • Suggesting the best material options. •
+Showing approximate price ranges. • Displaying nearby shop locations using
+location-based services (Google Maps API). • Supporting both customer
+convenience and local business promotion.
+
+1.3 Fact Finding Techniques • Interview: Asking customers about there
+difficulties they face in product material discovery. • Observation: Watching
+how people search products in local markets and spend time visiting
+multiple shops. • Questionnaire: Collecting user feedback on whether an
+app with shop location suggestions is useful. • Literature Review: Studying
+apps like JustDial, Google Maps, and Amazon to understand gaps
+1.4 Drawbacks of Existing System • No single app provides both product
+material suggestions and local visibility. • Customers spend extra time and
+effort searching across multiple apps or shops. • Local vendors do not get
+online visibility compared to big e-commerce platforms. • Lack of trust factor –
+customers don’t know about shop ratings or feedback.
+
+1.5 Scope of Proposed System • Customers can search for product, get best
+material suggestions, and see nearby shops. • Shops will be displayed with
+location map integration (Google Maps API). • Provide estimated price
+ranges and pros/cons of each material. • Future scope: Add multiple product
+categories (furniture, electronics, groceries).
+
+1.6 Feasibility Study • Technical Feasibility: Web app can integrate Google
+Maps API for showing nearby shops; mini project assignemnt 1 Page 1 •
+Technical Feasibility: Web app can integrate Google Maps API for showing
+nearby shops; product data stored in a simple database. • Operational
+Feasibility: Customers save time, vendors get more customers, trust increases. •
+Economic Feasibility: Low-cost as mini project; uses free APIs and sample
+datasets
+Assignment – 2
+
+2.1 Data Requirements of the System The system requires the following data:
+• Product Categories (e.g., Utensils, Electronics, Furniture). • • Features &
+Benefits of each product variety (durability, safety, ease of use, etc.). •
+Approximate Price Range for each variety. • Nearby Shop Information
+(Shop name, location/address, Google Maps link). • User Location (to
+suggest nearby shops). Product Varieties (e.g., For Pan → Honeycomb
+Coated, Triply, Non-stick; For Kadai → Aluminium, Non-stick, Induction base)
+
+. 2.2 Identify End Users of the System The primary end users of the system are:
+• Local Customers who want to buy products (e.g., households, individuals).
+• Retail Buyers who compare varieties before purchasing. •
+Vendors/Shopkeepers (optional, if they want to register their shop in the
+future).
+
+2.3 Input Data to the System • Selected Product Type (e.g., Pan, Kadai). •
+Selected User Location or system-detected location. • Optional filters like
+Price range or Preferred Material.
+
+2.4 Output Information from the System • List of Product Varieties available
+(with features, pros/cons, and approximate price range). • System
+Recommendation(e.g., Triply Pan is more durable and safe). • List of Nearby
+Shops where the product can be purchased (with shop name, address,
+and Google Maps link).
+2.5 Functional / Non-functional / Processing Requirements Functional
+Requirements:
+• The system should allow users to search for a product. • The system should
+display product varieties with details. • The system should suggest the best
+product option. • The system should show nearby shops based on user’s
+location.
+
+Non-functional Requirements: • The system should be easy to use and user-
+friendly. • The system should give quick search results. • The system should work
+on both desktop and mobile browsers. • The system should integrate with
+Google Maps for location display.
+
+Processing Requirements: • Store and process product details (features,
+varieties, price ranges). • Fetch and display shop details based on location. •
+Handle user queries efficiently. • Provide real-time mapping and navigation
+support through APIs. assignment 2 Page 1 • Provide real-time mapping and
+navigation support through APIs.
+DATABASE DESIGN
+3.4 Normalize Database
+First Normal Form (1NF): No
+repeating groups, attributes are
+atomic.
+Second Normal Form (2NF): Partial
+dependencies removed.
+Third Normal Form (3NF): No
+transitive dependency, all
+attributes depend only on
+PK.
+Final database is in 3NF.
+

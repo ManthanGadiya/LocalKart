@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalKart | Contact</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">LocalKart</a>
+    <nav class="navlinks">
+      <a href="/">Home</a>
+      <a href="/discover">Discover</a>
+      <a href="/shops">Shops</a>
+      <a href="/materials">Materials</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="account-area">
+      <button id="accountToggle" class="ghost-btn" type="button">Account</button>
+      <div id="authMenu" class="auth-menu hidden">
+        <button class="ghost-btn" type="button">Sign Up</button>
+        <button class="ghost-btn" type="button">Login</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="panel">
+      <h1>Contact</h1>
+      <p class="muted">Need support or want to register your shop?</p>
+      <div class="grid two">
+        <label>Name
+          <input type="text" placeholder="Your name">
+        </label>
+        <label>Email
+          <input type="email" placeholder="you@example.com">
+        </label>
+      </div>
+      <label>Message
+        <textarea rows="5" placeholder="How can we help?"></textarea>
+      </label>
+      <div class="actions">
+        <button class="cta" type="button">Send Message</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/site.js"></script>
+</body>
+</html>

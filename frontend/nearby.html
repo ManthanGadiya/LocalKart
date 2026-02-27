@@ -1,0 +1,65 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalKart | Nearby Shops</title>
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="home.html">LocalKart</a>
+    <nav class="navlinks">
+      <a href="home.html">Home</a>
+      <a href="select.html">Compare</a>
+      <a href="nearby.html">Nearby</a>
+      <a href="about.html">About</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="panel">
+      <h1>Nearby Utensil Stores</h1>
+      <p id="nearbyTitle" class="muted">Showing stores for selected utensil.</p>
+      <div class="location-controls">
+        <button id="useMyLocationBtn" class="btn-green" type="button">Use My Current Location</button>
+        <label>Or Select Area
+          <select id="locationPreset">
+            <option value="18.5204,73.8567">Pune - Shivaji Nagar</option>
+            <option value="19.076,72.8777">Mumbai - Dadar</option>
+            <option value="20.011,73.7903">Nashik - College Road</option>
+            <option value="21.1458,79.0882">Nagpur - Sitabuldi</option>
+            <option value="12.9716,77.5946">Bengaluru - Indiranagar</option>
+            <option value="17.385,78.4867">Hyderabad - Banjara Hills</option>
+            <option value="28.6139,77.209">Delhi - Connaught Place</option>
+            <option value="23.0225,72.5714">Ahmedabad - Navrangpura</option>
+          </select>
+        </label>
+      </div>
+      <div id="locationStatus" class="subtle"></div>
+      <div class="actions">
+        <button id="loadNearbyBtn" class="btn-green" type="button">Load Nearby Shops</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="shops-table">
+          <thead>
+            <tr>
+              <th>Shop Name</th>
+              <th>Area</th>
+              <th>Contact</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody id="shopsTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">&copy; 2026 LocalKart - Smart Utensil Guide</footer>
+  <script src="static/site.js"></script>
+  <script src="static/nearby.js"></script>
+</body>
+</html>

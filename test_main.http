@@ -1,0 +1,22 @@
+GET http://127.0.0.1:8000/api/health
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/categories
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/products
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/products/1/varieties
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/shops/nearby?lat=18.5204&lng=73.8567&radius_km=10
+Accept: application/json
