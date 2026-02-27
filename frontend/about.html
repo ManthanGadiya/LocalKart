@@ -3,30 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LocalKart | About</title>
+  <title>LocalKart X | About</title>
   <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="home.html">LocalKart</a>
-    <nav class="navlinks">
-      <a href="home.html">Home</a>
-      <a href="select.html">Compare</a>
-      <a href="nearby.html">Nearby</a>
-      <a href="about.html">About</a>
-      <a href="index.html">Logout</a>
-    </nav>
-  </header>
+  <div id="globalLoader" class="loader"><div class="pulse"></div></div>
+  <div class="particles"></div>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="home.html">LocalKart X</a>
+      <nav class="navlinks">
+        <a href="home.html">Home</a>
+        <a href="select.html">Compare</a>
+        <a href="nearby.html">Nearby</a>
+        <a href="about.html">About</a>
+        <a href="index.html">Logout</a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" type="button">Theme</button>
+    </header>
 
-  <main class="page">
-    <section class="panel">
-      <h1>About LocalKart</h1>
-      <p>Our system helps users compare different utensil materials based on durability, health impact, and usability.</p>
-      <p>LocalKart solves the problem of scattered information by combining comparison, health context, and nearby store discovery in one simple flow.</p>
-    </section>
-  </main>
+    <main class="page">
+      <section class="panel glass reveal">
+        <h2>About LocalKart</h2>
+        <p>Our system helps users compare different utensil materials based on durability, health impact, and usability.</p>
+        <p>LocalKart X blends smart recommendations with nearby availability so users make faster, safer kitchen decisions.</p>
+      </section>
+    </main>
 
-  <footer class="footer">&copy; 2026 LocalKart - Smart Utensil Guide</footer>
+    <button id="compareFab" class="btn btn-neon fab" type="button">Compare Now</button>
+    <footer class="footer">© 2026 LocalKart - Smart Utensil Guide</footer>
+  </div>
   <script src="static/site.js"></script>
 </body>
 </html>

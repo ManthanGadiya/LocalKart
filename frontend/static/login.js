@@ -8,10 +8,10 @@ function goHome() {
 
 if (loginBtn) {
   loginBtn.addEventListener('click', () => {
-    const user = (document.getElementById('loginEmail')?.value || '').trim();
-    const pass = (document.getElementById('loginPassword')?.value || '').trim();
-    if (!user || !pass) {
-      authStatus.textContent = 'Enter username and password.';
+    const u = (document.getElementById('loginEmail')?.value || '').trim();
+    const p = (document.getElementById('loginPassword')?.value || '').trim();
+    if (!u || !p) {
+      authStatus.textContent = 'Please enter username and password.';
       return;
     }
     goHome();
@@ -20,6 +20,6 @@ if (loginBtn) {
 
 if (signupBtn) {
   signupBtn.addEventListener('click', () => {
-    authStatus.textContent = 'Sign up form can be integrated with backend next.';
+    authStatus.textContent = 'Sign up API can be connected next.';
   });
 }

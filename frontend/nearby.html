@@ -3,62 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LocalKart | Nearby Shops</title>
+  <title>LocalKart X | Nearby</title>
   <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="home.html">LocalKart</a>
-    <nav class="navlinks">
-      <a href="home.html">Home</a>
-      <a href="select.html">Compare</a>
-      <a href="nearby.html">Nearby</a>
-      <a href="about.html">About</a>
-      <a href="index.html">Logout</a>
-    </nav>
-  </header>
+  <div id="globalLoader" class="loader"><div class="pulse"></div></div>
+  <div class="particles"></div>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="home.html">LocalKart X</a>
+      <nav class="navlinks">
+        <a href="home.html">Home</a>
+        <a href="select.html">Compare</a>
+        <a href="nearby.html">Nearby</a>
+        <a href="about.html">About</a>
+        <a href="index.html">Logout</a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" type="button">Theme</button>
+    </header>
 
-  <main class="page">
-    <section class="panel">
-      <h1>Nearby Utensil Stores</h1>
-      <p id="nearbyTitle" class="muted">Showing stores for selected utensil.</p>
-      <div class="location-controls">
-        <button id="useMyLocationBtn" class="btn-green" type="button">Use My Current Location</button>
-        <label>Or Select Area
-          <select id="locationPreset">
+    <main class="page">
+      <section class="store-map glass reveal" id="mapPlaceholder">
+        <div>
+          <h3>Dark Map Zone</h3>
+          <p>Use current location or choose a preset to load stores.</p>
+        </div>
+      </section>
+
+      <section class="panel glass reveal">
+        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:10px;">
+          <button id="useMyLocationBtn" class="btn btn-neon" type="button">Use My Location</button>
+          <select id="locationPreset" class="search-input" style="max-width:360px;color: #0f0f0f">
             <option value="18.5204,73.8567">Pune - Shivaji Nagar</option>
+            <option value="18.5074,73.8077">Pune - Kothrud</option>
+            <option value="18.559,73.8078">Pune - Aundh</option>
+            <option value="18.5975,73.7622">Pune - Wakad</option>
+            <option value="18.5679,73.9143">Pune - Viman Nagar</option>
+            <option value="18.5515,73.9417">Pune - Kharadi</option>
+            <option value="18.5089,73.8314">Pune - Erandwane</option>
+            <option value="18.5362,73.8947">Pune - Koregaon Park</option>
+            <option value="18.4764,73.9009">Pune - NIBM</option>
+            <option value="18.4633,73.8662">Pune - Bibwewadi</option>
+            <option value="18.5912,73.7389">Pune - Hinjewadi</option>
+            <option value="18.572,73.7798">Pune - Balewadi</option>
+            <option value="18.5018,73.8216">Pune - Karve Road</option>
+            <option value="18.5642,73.7769">Pune - Baner</option>
             <option value="19.076,72.8777">Mumbai - Dadar</option>
-            <option value="20.011,73.7903">Nashik - College Road</option>
-            <option value="21.1458,79.0882">Nagpur - Sitabuldi</option>
-            <option value="12.9716,77.5946">Bengaluru - Indiranagar</option>
-            <option value="17.385,78.4867">Hyderabad - Banjara Hills</option>
-            <option value="28.6139,77.209">Delhi - Connaught Place</option>
-            <option value="23.0225,72.5714">Ahmedabad - Navrangpura</option>
+            <option value="19.1136,72.8697">Mumbai - Andheri</option>
+            <option value="19.0596,72.8295">Mumbai - Bandra</option>
+            <option value="19.086,72.9081">Mumbai - Ghatkopar</option>
+            <option value="19.2147,72.8479">Mumbai - Borivali</option>
+            <option value="19.1197,72.8468">Mumbai - Powai</option>
+            <option value="19.033,72.8433">Mumbai - Worli</option>
+            <option value="18.9543,72.8104">Mumbai - Colaba</option>
+            <option value="20.011,73.7903">Nashik</option>
+            <option value="21.1458,79.0882">Nagpur</option>
+            <option value="12.9716,77.5946">Bengaluru</option>
+            <option value="17.385,78.4867">Hyderabad</option>
+            <option value="28.6139,77.209">Delhi</option>
+            <option value="23.0225,72.5714">Ahmedabad</option>
           </select>
-        </label>
-      </div>
-      <div id="locationStatus" class="subtle"></div>
-      <div class="actions">
-        <button id="loadNearbyBtn" class="btn-green" type="button">Load Nearby Shops</button>
-      </div>
+          <button id="loadNearbyBtn" class="btn btn-outline" type="button">Load Stores</button>
+        </div>
+        <p id="locationStatus" class="muted"></p>
+        <p id="nearbyTitle" class="muted"></p>
+      </section>
 
-      <div class="table-wrap">
-        <table class="shops-table">
-          <thead>
-            <tr>
-              <th>Shop Name</th>
-              <th>Area</th>
-              <th>Contact</th>
-              <th>Rating</th>
-            </tr>
-          </thead>
-          <tbody id="shopsTableBody"></tbody>
-        </table>
-      </div>
-    </section>
-  </main>
+      <section class="store-grid reveal" id="storesGrid"></section>
+    </main>
 
-  <footer class="footer">&copy; 2026 LocalKart - Smart Utensil Guide</footer>
+    <button id="compareFab" class="btn btn-neon fab" type="button">Compare Now</button>
+    <footer class="footer">© 2026 LocalKart - Smart Utensil Guide</footer>
+  </div>
   <script src="static/site.js"></script>
   <script src="static/nearby.js"></script>
 </body>

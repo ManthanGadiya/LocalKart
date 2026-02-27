@@ -121,8 +121,8 @@ Current seed target:
 - `materials`: 12
 - `product_varieties`: 240
 - `variety_features`: 720
-- `shops`: 80
-- `shop_inventory`: 320
+- `shops`: 130
+- `shop_inventory`: 520
 
 ## Changelog
 
@@ -139,4 +139,26 @@ Current seed target:
 
 - 2026-02-27: Added many more shop locations (8 cities), clickable map links from nearby results, and geolocation/preset-based nearby search UX.
 
+
+
+## LocalKart X Theme
+
+Applied premium project theme:
+- Dark default (`#0f0f0f`) with neon green (`#00ff9d`) and electric orange (`#ff6b00`) accents
+- Glass UI cards with blur/glow effects
+- Cinematic hero section with animated gradient
+- Sticky navbar with theme toggle (light mode optional)
+- Smooth hover effects, page fade-in, loading pulse, scroll-reveal animations
+- Subtle background particle animation
+- Floating `Compare Now` action button
+
+Page upgrades:
+- Home: cinematic hero + neon CTA + glass feature cards
+- Select: search + filter chips + 3-column utensil grid with hover/zoom/score indicators
+- Comparison: split power-panel layout with neon vertical tabs + animated metric bars
+- Nearby: dark map placeholder + store cards with call button and map open action
+- 2026-02-27: Upgraded to LocalKart X premium dark-neon glass UI with animations, theme toggle, and startup-style interface.
+
+
+- 2026-02-27: Expanded Pune and Mumbai coverage significantly (Pune 40 areas, Mumbai 30 areas) and added many Pune-area presets in nearby selection.
 

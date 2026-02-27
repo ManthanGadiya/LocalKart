@@ -3,30 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LocalKart | Select Utensil</title>
+  <title>LocalKart X | Utensils</title>
   <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="home.html">LocalKart</a>
-    <nav class="navlinks">
-      <a href="home.html">Home</a>
-      <a href="select.html">Compare</a>
-      <a href="nearby.html">Nearby</a>
-      <a href="about.html">About</a>
-      <a href="index.html">Logout</a>
-    </nav>
-  </header>
+  <div id="globalLoader" class="loader"><div class="pulse"></div></div>
+  <div class="particles"></div>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="home.html">LocalKart X</a>
+      <nav class="navlinks">
+        <a href="home.html">Home</a>
+        <a href="select.html">Compare</a>
+        <a href="nearby.html">Nearby</a>
+        <a href="about.html">About</a>
+        <a href="index.html">Logout</a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" type="button">Theme</button>
+    </header>
 
-  <main class="page">
-    <section class="panel">
-      <h1>Choose Your Utensil</h1>
-      <div id="utensilGrid" class="utensil-grid"></div>
-      <div id="status" class="subtle"></div>
-    </section>
-  </main>
+    <main class="page">
+      <section class="panel glass reveal">
+        <h2>Choose Your Utensil</h2>
+        <div class="search-row">
+          <input id="searchInput" class="search-input" type="text" placeholder="Search utensils...">
+          <div class="chips">
+            <button class="chip active" data-filter="all" type="button">Cookware</button>
+            <button class="chip" data-filter="storage" type="button">Storage</button>
+            <button class="chip" data-filter="appliances" type="button">Appliances</button>
+          </div>
+        </div>
+      </section>
 
-  <footer class="footer">&copy; 2026 LocalKart - Smart Utensil Guide</footer>
+      <section class="utensil-grid reveal" id="utensilGrid"></section>
+      <p id="status" class="muted"></p>
+    </main>
+
+    <button id="compareFab" class="btn btn-neon fab" type="button">Compare Now</button>
+    <footer class="footer">© 2026 LocalKart - Smart Utensil Guide</footer>
+  </div>
   <script src="static/site.js"></script>
   <script src="static/select.js"></script>
 </body>

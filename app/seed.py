@@ -60,8 +60,8 @@ def seed_if_empty(db: Session) -> None:
         and existing["materials"] >= 12
         and existing["varieties"] >= 180
         and existing["features"] >= 360
-        and existing["shops"] >= 80
-        and existing["inventory"] >= 320
+        and existing["shops"] >= 130
+        and existing["inventory"] >= 520
     ):
         return
 
@@ -230,8 +230,30 @@ def seed_if_empty(db: Session) -> None:
     db.add_all(features)
 
     location_clusters = [
-        ("Pune", 18.5204, 73.8567, ["Shivaji Nagar", "Kothrud", "Baner", "Aundh", "Hadapsar", "Wakad", "Viman Nagar", "Kharadi", "Karve Road", "FC Road"]),
-        ("Mumbai", 19.0760, 72.8777, ["Dadar", "Andheri", "Borivali", "Ghatkopar", "Bandra", "Powai", "Chembur", "Kurla", "Thane West", "Malad"]),
+        (
+            "Pune",
+            18.5204,
+            73.8567,
+            [
+                "Shivaji Nagar", "Kothrud", "Baner", "Aundh", "Hadapsar", "Wakad", "Viman Nagar", "Kharadi",
+                "Karve Road", "FC Road", "Deccan", "Pashan", "Bavdhan", "Warje", "Erandwane", "Camp",
+                "Koregaon Park", "Mundhwa", "Magarpatta", "Kalyani Nagar", "Ravet", "Pimple Saudagar",
+                "Hinjewadi", "Balewadi", "Sus", "NIBM", "Kondhwa", "Bibwewadi", "Dhankawadi", "Katrap",
+                "Swargate", "Sadashiv Peth", "Narhe", "Dhayari", "Sinhagad Road", "Nigdi", "Akurdi",
+                "Chinchwad", "Bhosari", "Yerawada"
+            ],
+        ),
+        (
+            "Mumbai",
+            19.0760,
+            72.8777,
+            [
+                "Dadar", "Andheri", "Borivali", "Ghatkopar", "Bandra", "Powai", "Chembur", "Kurla",
+                "Thane West", "Malad", "Santacruz", "Vile Parle", "Jogeshwari", "Goregaon", "Kandivali",
+                "Byculla", "Parel", "Worli", "Lower Parel", "Sion", "Matunga", "Colaba", "Cuffe Parade",
+                "Mulund", "Bhandup", "Kanjurmarg", "Mira Road", "Dahisar", "Bhayandar", "Navi Mumbai"
+            ],
+        ),
         ("Nashik", 20.0110, 73.7903, ["College Road", "Gangapur Road", "Canada Corner", "CIDCO", "Panchavati", "Indira Nagar", "Satpur", "Pathardi", "Dwarka", "Makhmalabad"]),
         ("Nagpur", 21.1458, 79.0882, ["Sitabuldi", "Dharampeth", "Manish Nagar", "Sadar", "Mahal", "Wardhaman Nagar", "Pratap Nagar", "Nandanvan", "Trimurti Nagar", "Ramdaspeth"]),
         ("Bengaluru", 12.9716, 77.5946, ["Indiranagar", "Whitefield", "Jayanagar", "HSR Layout", "Koramangala", "Rajajinagar", "Malleshwaram", "Marathahalli", "Yelahanka", "Hebbal"]),

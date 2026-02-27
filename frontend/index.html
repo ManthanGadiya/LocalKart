@@ -3,29 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LocalKart | Login</title>
+  <title>LocalKart X | Login</title>
   <link rel="stylesheet" href="static/styles.css">
 </head>
-<body class="login-body">
-  <main class="login-wrap">
-    <section class="login-card">
-      <h1 class="logo">LocalKart</h1>
-      <p class="subtitle">Smart Utensil Comparison System</p>
-
-      <label>Username
-        <input id="loginEmail" type="text" placeholder="Enter username or email">
-      </label>
-      <label>Password
-        <input id="loginPassword" type="password" placeholder="Enter password">
-      </label>
-
-      <div class="actions">
-        <button id="loginBtn" class="btn-green" type="button">Login</button>
-        <button id="signupBtn" class="ghost-btn" type="button">Sign Up</button>
-      </div>
-      <div id="authStatus" class="subtle"></div>
-    </section>
-  </main>
+<body>
+  <div id="globalLoader" class="loader"><div class="pulse"></div></div>
+  <div class="particles"></div>
+  <div class="page-shell">
+    <main class="login-wrap">
+      <section class="login-card glass reveal">
+        <h1>LocalKart X</h1>
+        <p class="muted">Premium Smart Kitchen Platform</p>
+        <input id="loginEmail" type="text" placeholder="Username or email">
+        <input id="loginPassword" type="password" placeholder="Password">
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button id="loginBtn" class="btn btn-neon">Login</button>
+          <button id="signupBtn" class="btn btn-outline">Sign Up</button>
+        </div>
+        <p id="authStatus" class="muted"></p>
+      </section>
+    </main>
+  </div>
+  <script src="static/site.js"></script>
   <script src="static/login.js"></script>
 </body>
 </html>
