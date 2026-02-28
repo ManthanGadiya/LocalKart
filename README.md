@@ -141,7 +141,7 @@ Current seed target:
 
 
 
-## LocalKart X Theme
+## LocalKart Theme
 
 Applied premium project theme:
 - Dark default (`#0f0f0f`) with neon green (`#00ff9d`) and electric orange (`#ff6b00`) accents
@@ -157,7 +157,7 @@ Page upgrades:
 - Select: search + filter chips + 3-column utensil grid with hover/zoom/score indicators
 - Comparison: split power-panel layout with neon vertical tabs + animated metric bars
 - Nearby: dark map placeholder + store cards with call button and map open action
-- 2026-02-27: Upgraded to LocalKart X premium dark-neon glass UI with animations, theme toggle, and startup-style interface.
+- 2026-02-27: Upgraded to LocalKart premium dark-neon glass UI with animations, theme toggle, and startup-style interface.
 
 
 - 2026-02-27: Expanded Pune and Mumbai coverage significantly (Pune 40 areas, Mumbai 30 areas) and added many Pune-area presets in nearby selection.
