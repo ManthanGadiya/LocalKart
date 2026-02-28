@@ -7,17 +7,102 @@ const chips = Array.from(document.querySelectorAll('.chip'));
 let allProducts = [];
 let activeFilter = 'all';
 
+const SECTION_ORDER = [
+  {
+    key: 'core-cooking-vessels',
+    products: [
+      'Kadhai',
+      'Frypan',
+      'Saucepan',
+      'Grill Pan',
+      'Tawa',
+      'Tasla',
+      'Casserole / Handi',
+      'Cooker',
+    ],
+  },
+  {
+    key: 'specialized-cookware',
+    products: [
+      'Appam Patra',
+      'Multipurpose Pan',
+      'Stock Pot',
+      'Roasting Pan',
+      'Baking Tray / Sheet',
+    ],
+  },
+  {
+    key: 'electric-utility',
+    products: [
+      'Electric Kettle',
+      'Steamer / Puttu Maker',
+      'Idli Stand',
+    ],
+  },
+  {
+    key: 'serving-mixing',
+    products: ['Mixing Bowl', 'Serving Bowl / Handi'],
+  },
+  {
+    key: 'indian-essentials',
+    products: ['Chakla', 'Belan', 'Spice Box'],
+  },
+];
+
+const SECTION_LABELS = {
+  'core-cooking-vessels': 'Core Cooking Vessels',
+  'specialized-cookware': 'Specialized Cookware',
+  'electric-utility': 'Electric & Utility',
+  'serving-mixing': 'Serving & Mixing',
+  'indian-essentials': 'Indian Essentials',
+};
+
 async function fetchJson(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`Request failed: ${res.status}`);
   return res.json();
 }
 
-function classifyProduct(p) {
-  const n = p.name.toLowerCase();
-  if (n.includes('jar') || n.includes('box') || n.includes('rack') || n.includes('bin') || n.includes('container')) return 'storage';
-  if (n.includes('kettle') || n.includes('air fryer') || n.includes('mixer') || n.includes('blender') || n.includes('toaster') || n.includes('cooker')) return 'appliances';
-  return 'cookware';
+function normalizeName(name) {
+  return (name || '')
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function resolveSectionKey(name) {
+  const normalized = normalizeName(name);
+  for (const section of SECTION_ORDER) {
+    if (section.products.some((p) => normalizeName(p) === normalized)) return section.key;
+  }
+  return null;
+}
+
+function orderedProducts(products) {
+  const byName = new Map(products.map((p) => [normalizeName(p.name), p]));
+  const used = new Set();
+  const ordered = [];
+
+  for (const section of SECTION_ORDER) {
+    for (const productName of section.products) {
+      const item = byName.get(normalizeName(productName));
+      if (!item) continue;
+      const key = item.id ? String(item.id) : normalizeName(item.name);
+      if (used.has(key)) continue;
+      used.add(key);
+      ordered.push({ ...item, sectionKey: section.key });
+    }
+  }
+
+  const fallback = products
+    .filter((p) => {
+      const key = p.id ? String(p.id) : normalizeName(p.name);
+      return !used.has(key);
+    })
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((p) => ({ ...p, sectionKey: resolveSectionKey(p.name) || 'all' }));
+
+  return ordered.concat(fallback);
 }
 
 function healthScore(name) {
@@ -29,9 +114,8 @@ function healthScore(name) {
 
 function render(products) {
   const q = (searchInput?.value || '').trim().toLowerCase();
-  const rows = products.filter((p) => {
-    const cat = classifyProduct(p);
-    const byChip = activeFilter === 'all' || cat === activeFilter;
+  const rows = orderedProducts(products).filter((p) => {
+    const byChip = activeFilter === 'all' || p.sectionKey === activeFilter;
     const bySearch = !q || p.name.toLowerCase().includes(q);
     return byChip && bySearch;
   });
@@ -51,6 +135,7 @@ function render(products) {
         <span class="rating-dot" title="rating"></span>
         <div class="thumb">${p.name}</div>
         <strong>${p.name}</strong>
+        <div class="badge">${SECTION_LABELS[p.sectionKey] || 'Other'}</div>
         <div class="health-badge">Health Score: ${score}</div>
       </article>`;
     })

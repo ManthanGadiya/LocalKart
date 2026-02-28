@@ -56,7 +56,7 @@
   const fab = document.getElementById('compareFab');
   if (fab) {
     fab.addEventListener('click', () => {
-      window.location.href = 'select.html';
+      window.location.href = 'nearby.html';
     });
   }
 })();

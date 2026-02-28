@@ -92,18 +92,25 @@ def seed_if_empty(db: Session) -> None:
     db.add_all(categories)
 
     material_defs = [
-        ("Triply", "Durable and even heating"),
-        ("Non-stick", "Easy cleaning"),
-        ("Aluminium", "Budget friendly"),
-        ("Stainless Steel", "Rust resistant"),
         ("Cast Iron", "High heat retention"),
-        ("Copper", "Fast heat conduction"),
-        ("Glass", "Food-safe transparent"),
-        ("Ceramic", "Non-reactive surface"),
+        ("Triply Steel", "Even heating with layered durability"),
+        ("Non-stick", "Easy cleaning and low oil cooking"),
+        ("Hard Anodized", "Tough, scratch-resistant surface"),
+        ("Clay", "Traditional, slow and even heat"),
+        ("Steel", "Durable and long lasting"),
+        ("Ceramic", "Non-reactive and food-safe"),
+        ("Aluminium", "Lightweight and affordable"),
+        ("Glass", "Food-safe and transparent"),
         ("Plastic", "Lightweight utility"),
         ("Wood", "Natural finish"),
-        ("Silicone", "Flexible and safe grip"),
-        ("Carbon Steel", "Strong and quick heating"),
+        ("Marble", "Heavy and stable surface"),
+        ("Brass", "Classic, sturdy material"),
+        ("Silicone", "Heat resistant and flexible"),
+        ("Clay Coating", "Clay coated for healthier cooking"),
+        ("Black Finish", "Matte black coated surface"),
+        ("Honeycomb", "Textured surface for better sear"),
+        ("Multipurpose", "Versatile use-case build"),
+        ("Normal", "Standard basic build"),
     ]
     materials = [models.Material(name=n, description=d) for n, d in material_defs]
     db.add_all(materials)
@@ -111,34 +118,27 @@ def seed_if_empty(db: Session) -> None:
 
     utensil_names = [
         "Kadhai",
-        "Frying Pan",
-        "Tawa",
-        "Cooker",
+        "Frypan",
         "Saucepan",
-        "Milk Pot",
-        "Stock Pot",
-        "Steamer",
-        "Idli Stand",
-        "Dosa Tawa",
         "Grill Pan",
-        "Handi",
-        "Wok",
-        "Skillet",
-        "Roti Tawa",
-        "Pressure Pan",
+        "Tawa",
+        "Tasla",
+        "Casserole / Handi",
+        "Cooker",
+        "Appam Patra",
+        "Multipurpose Pan",
+        "Stock Pot",
+        "Roasting Pan",
+        "Baking Tray / Sheet",
+        "Steamer / Puttu Maker",
+        "Idli Stand",
+        "Chakla",
+        "Belan",
     ]
     other_product_names = {
-        "Electronics": ["Mixer", "Induction Plate", "Toaster", "Blender"],
-        "Furniture": ["Dining Chair", "Kitchen Stool", "Utility Rack", "Cupboard"],
-        "Groceries": ["Rice Bin", "Flour Box", "Spice Box", "Oil Can"],
-        "Cleaning": ["Floor Wiper", "Scrub Brush", "Mop Set", "Cleaning Caddy"],
-        "Storage": ["Storage Jar", "Lunch Box", "Container Set", "Spice Rack"],
-        "Appliances": ["Electric Kettle", "Air Fryer", "Rice Cooker", "Sandwich Maker"],
-        "Bathroom": ["Bucket", "Mug", "Soap Holder", "Towel Rack"],
-        "Dining": ["Serving Bowl", "Dinner Plate", "Glass Set", "Cutlery Stand"],
-        "Outdoor": ["Water Can", "Camping Pot", "Portable Stove", "Utility Knife"],
-        "Kids": ["Kids Bottle", "Snack Box", "Mini Plate", "Sipper"],
-        "Tools": ["Hammer", "Screwdriver Set", "Pliers", "Measuring Tape"],
+        "Appliances": ["Electric Kettle"],
+        "Dining": ["Mixing Bowl", "Serving Bowl / Handi"],
+        "Groceries": ["Spice Box"],
     }
 
     products = []
@@ -156,40 +156,91 @@ def seed_if_empty(db: Session) -> None:
     db.flush()
 
     pro_by_material = {
-        "Triply": "Even heat distribution and high durability",
-        "Non-stick": "Low oil cooking and easy cleaning",
-        "Aluminium": "Lightweight and affordable",
-        "Stainless Steel": "Rust resistant and long lasting",
         "Cast Iron": "Excellent heat retention",
-        "Copper": "Fast heating response",
-        "Glass": "Visible cooking and non-reactive",
+        "Triply Steel": "Even heat distribution and high durability",
+        "Non-stick": "Low oil cooking and easy cleaning",
+        "Hard Anodized": "Scratch resistant and durable surface",
+        "Clay": "Slow, even cooking with natural feel",
+        "Steel": "Rust resistant and long lasting",
         "Ceramic": "Food-safe and premium finish",
+        "Aluminium": "Lightweight and affordable",
+        "Glass": "Visible cooking and non-reactive",
         "Plastic": "Light and economical",
         "Wood": "Natural look and sturdy grip",
+        "Marble": "Very stable surface with good grip",
+        "Brass": "Sturdy material with traditional appeal",
         "Silicone": "Heat resistant with flexible handling",
-        "Carbon Steel": "Strong body with fast heating",
+        "Clay Coating": "Healthier cooking surface with clay layer",
+        "Black Finish": "Attractive matte finish",
+        "Honeycomb": "Better sear and reduced sticking",
+        "Multipurpose": "Versatile for different use cases",
+        "Normal": "Standard build for everyday use",
     }
     con_by_material = {
-        "Triply": "Usually more expensive than basic options",
-        "Non-stick": "Coating needs careful handling",
-        "Aluminium": "Can dent over long rough use",
-        "Stainless Steel": "Can stick without proper preheating",
         "Cast Iron": "Heavier to handle daily",
-        "Copper": "Needs regular maintenance for shine",
-        "Glass": "Can break with sudden impact",
+        "Triply Steel": "Usually more expensive than basic options",
+        "Non-stick": "Coating needs careful handling",
+        "Hard Anodized": "Can be costlier than basic pans",
+        "Clay": "Requires careful handling to avoid cracks",
+        "Steel": "Can stick without proper preheating",
         "Ceramic": "Premium variants can be costly",
+        "Aluminium": "Can dent over long rough use",
+        "Glass": "Can break with sudden impact",
         "Plastic": "Not suitable for high-heat cooking",
         "Wood": "Needs dry storage to avoid moisture damage",
+        "Marble": "Heavy to move frequently",
+        "Brass": "Needs regular polishing",
         "Silicone": "Limited for direct flame use",
-        "Carbon Steel": "Needs seasoning for best performance",
+        "Clay Coating": "Coating needs gentle care",
+        "Black Finish": "Finish can fade with rough scrubbing",
+        "Honeycomb": "Still needs proper cleaning after searing",
+        "Multipurpose": "May not excel in a single task",
+        "Normal": "Basic build without premium features",
+    }
+
+    materials_by_name = {m.name: m for m in materials}
+    product_materials = {
+        "Kadhai": ["Cast Iron", "Triply Steel", "Non-stick", "Hard Anodized"],
+        "Frypan": [
+            "Aluminium",
+            "Ceramic",
+            "Honeycomb",
+            "Cast Iron",
+            "Triply Steel",
+            "Non-stick",
+            "Hard Anodized",
+            "Clay",
+        ],
+        "Saucepan": ["Steel", "Non-stick", "Ceramic"],
+        "Grill Pan": ["Cast Iron", "Ceramic", "Non-stick"],
+        "Tawa": ["Cast Iron", "Non-stick", "Steel", "Ceramic"],
+        "Tasla": ["Aluminium", "Steel", "Non-stick"],
+        "Casserole / Handi": ["Steel", "Ceramic", "Clay", "Non-stick"],
+        "Cooker": ["Steel", "Clay Coating", "Hard Anodized", "Black Finish"],
+        "Appam Patra": ["Cast Iron", "Non-stick"],
+        "Multipurpose Pan": ["Non-stick"],
+        "Stock Pot": ["Steel", "Aluminium", "Ceramic"],
+        "Roasting Pan": ["Steel", "Non-stick", "Ceramic"],
+        "Baking Tray / Sheet": ["Aluminium", "Non-stick", "Silicone"],
+        "Electric Kettle": ["Multipurpose", "Normal"],
+        "Steamer / Puttu Maker": ["Steel", "Aluminium"],
+        "Idli Stand": ["Steel", "Aluminium", "Non-stick"],
+        "Mixing Bowl": ["Steel", "Glass", "Ceramic", "Plastic"],
+        "Serving Bowl / Handi": ["Clay", "Ceramic", "Steel"],
+        "Chakla": ["Wood", "Marble"],
+        "Belan": ["Wood", "Steel"],
+        "Spice Box": ["Steel", "Brass"],
     }
 
     varieties = []
     for i, p in enumerate(products):
-        # 4 unique materials for each product.
-        material_indices = [(i + j) % len(materials) for j in range(4)]
-        for j, m_idx in enumerate(material_indices):
-            material = materials[m_idx]
+        mat_names = product_materials.get(p.name, [])
+        if not mat_names:
+            continue
+        for j, mat_name in enumerate(mat_names):
+            material = materials_by_name.get(mat_name)
+            if material is None:
+                continue
             base = 250 + (i * 37) + (j * 120)
             varieties.append(
                 models.ProductVariety(
