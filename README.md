@@ -5,12 +5,12 @@ LocalKart is a starter project for product-material discovery and nearby shop lo
 ## Tech Stack
 
 - Frontend: HTML, CSS, JavaScript
-- Backend: Python, FastAPI
+- Backend: Python, Flask
 - Database: SQLite + SQLAlchemy
 
 ## Project Layout
 
-- `app/main.py` - FastAPI routes and app configuration
+- `app/main.py` - Flask routes and app configuration
 - `app/database.py` - SQLAlchemy engine/session/base
 - `app/models.py` - SQLAlchemy models
 - `app/schemas.py` - Pydantic response schemas
@@ -90,14 +90,14 @@ pip install -r requirements.txt
 
 2. Start server
 ```bash
-uvicorn app.main:app --reload
+python -m flask --app app.main run --debug --host 127.0.0.1 --port 8000
 ```
 
 3. Open UI
 - `http://127.0.0.1:8000/`
 
-4. Open API docs
-- `http://127.0.0.1:8000/docs`
+4. Open UI/API
+- `http://127.0.0.1:8000/`
 
 ## Frontend On 63342 + Backend On 8000
 
@@ -108,7 +108,7 @@ Backend runs on:
 - `http://127.0.0.1:8000`
 
 Integration notes:
-- CORS is enabled in FastAPI for `localhost:63342` and `127.0.0.1:63342`.
+- CORS is enabled in Flask for `localhost:63342` and `127.0.0.1:63342`.
 - Frontend JS auto-targets `http://127.0.0.1:8000` when running on port `63342`.
 
 ## Seed Data
@@ -126,8 +126,8 @@ Current seed target:
 
 ## Changelog
 
-- 2026-02-27: Rebuilt project from scratch with FastAPI + SQLite/SQLAlchemy + HTML/CSS/JS.
-- 2026-02-27: Removed root `main.py`; app now runs directly with `uvicorn app.main:app --reload`.
+- 2026-02-27: Rebuilt project from scratch with Flask + SQLite/SQLAlchemy + HTML/CSS/JS.
+- 2026-02-27: Removed root `main.py`; app now runs directly with `python -m flask --app app.main run --debug --host 127.0.0.1 --port 8000`.
 - 2026-02-27: Updated seeding to keep up to 10 records in every current table.
 - 2026-02-27: Redesigned frontend to a vibrant 6-page site with shared top bar and hidden-at-start signup/login menu.
 - 2026-02-27: Added explicit CORS + frontend API base handling for separate frontend (63342) and backend (8000) setup.
@@ -161,4 +161,3 @@ Page upgrades:
 
 
 - 2026-02-27: Expanded Pune and Mumbai coverage significantly (Pune 40 areas, Mumbai 30 areas) and added many Pune-area presets in nearby selection.
-

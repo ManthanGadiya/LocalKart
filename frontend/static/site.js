@@ -25,6 +25,16 @@
     }
   });
 
+  document.querySelectorAll('.navlinks a[href="index.html"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      localStorage.removeItem('localkart-user');
+      localStorage.removeItem('selectedProductId');
+      localStorage.removeItem('selectedProductName');
+      window.location.href = '/';
+    });
+  });
+
   const particlesHost = document.querySelector('.particles');
   if (particlesHost) {
     for (let i = 0; i < 36; i++) {
